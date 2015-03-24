@@ -22,7 +22,6 @@ public:
     std::vector<BoneData*> boneDataList;
     std::vector<SkinData*> skinDataList;
     std::vector<AnimationData*> animationDataList;
-    
 public:
     ArmatureData() {}
     ArmatureData(const ArmatureData &copyData)
@@ -142,6 +141,11 @@ public:
     
     BoneData* getBoneData(const std::string &boneName) const
     {
+		if (boneName.empty())
+		{
+			return nullptr;
+		}
+
         for (size_t i = 0, l = boneDataList.size(); i < l; ++i)
         {
             if (boneDataList[i]->name == boneName)
@@ -200,6 +204,11 @@ public:
     
     AnimationData* getAnimationData(const std::string &animationName) const
     {
+		if (animationName.empty())
+		{
+			return nullptr;
+		}
+		
         for (size_t i = 0, l = animationDataList.size(); i < l; ++i)
         {
             if (animationDataList[i]->name == animationName)
@@ -228,7 +237,7 @@ public:
             
             while (parentData)
             {
-                parentData = getBoneData(parentData->parent);
+				parentData = getBoneData(parentData->parent);
                 level ++;
             }
             

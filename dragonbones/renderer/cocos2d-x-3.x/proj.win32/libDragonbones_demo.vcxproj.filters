@@ -31,6 +31,9 @@
     <Filter Include="dragonbones\textures">
       <UniqueIdentifier>{f37c0d71-0f78-406b-9ce7-3703598cccc1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="dragonbones\parsers\flatbuffers">
+      <UniqueIdentifier>{4e4c1e7f-d67c-4e3b-afc9-7df8d3d0814c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\DBCCArmature.cpp">
@@ -86,6 +89,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\parsers\XMLDataParser.cpp">
       <Filter>dragonbones\parsers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\parsers\BinaryDataParser.cpp">
+      <Filter>dragonbones\parsers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DBCCFactoryExt.cpp">
+      <Filter>renderer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -231,6 +240,21 @@
       <Filter>dragonbones</Filter>
     </ClInclude>
     <ClInclude Include="..\dbccMacro.h">
+      <Filter>renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\parsers\BinaryDataParser.h">
+      <Filter>dragonbones\parsers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\parsers\dragonbones_generated.h">
+      <Filter>dragonbones\parsers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\parsers\dragonbones_texture_generated.h">
+      <Filter>dragonbones\parsers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\parsers\flatbuffers\flatbuffers.h">
+      <Filter>dragonbones\parsers\flatbuffers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DBCCFactoryExt.h">
       <Filter>renderer</Filter>
     </ClInclude>
   </ItemGroup>

@@ -102,12 +102,14 @@
     <ClCompile Include="..\..\..\events\EventData.cpp" />
     <ClCompile Include="..\..\..\factories\BaseFactory.cpp" />
     <ClCompile Include="..\..\..\parsers\BaseDataParser.cpp" />
+    <ClCompile Include="..\..\..\parsers\BinaryDataParser.cpp" />
     <ClCompile Include="..\..\..\parsers\ConstValues.cpp" />
     <ClCompile Include="..\..\..\parsers\dbtinyxml2.cpp" />
     <ClCompile Include="..\..\..\parsers\XMLDataParser.cpp" />
     <ClCompile Include="..\DBCCArmature.cpp" />
     <ClCompile Include="..\DBCCArmatureNode.cpp" />
     <ClCompile Include="..\DBCCFactory.cpp" />
+    <ClCompile Include="..\DBCCFactoryExt.cpp" />
     <ClCompile Include="..\DBCCSlot.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -145,8 +147,12 @@
     <ClInclude Include="..\..\..\objects\TransformFrame.h" />
     <ClInclude Include="..\..\..\objects\TransformTimeline.h" />
     <ClInclude Include="..\..\..\parsers\BaseDataParser.h" />
+    <ClInclude Include="..\..\..\parsers\BinaryDataParser.h" />
     <ClInclude Include="..\..\..\parsers\ConstValues.h" />
     <ClInclude Include="..\..\..\parsers\dbtinyxml2.h" />
+    <ClInclude Include="..\..\..\parsers\dragonbones_generated.h" />
+    <ClInclude Include="..\..\..\parsers\dragonbones_texture_generated.h" />
+    <ClInclude Include="..\..\..\parsers\flatbuffers\flatbuffers.h" />
     <ClInclude Include="..\..\..\parsers\XMLDataParser.h" />
     <ClInclude Include="..\..\..\textures\ITextureAtlas.h" />
     <ClInclude Include="..\..\..\textures\TextureAtlasData.h" />
@@ -155,6 +161,7 @@
     <ClInclude Include="..\DBCCArmatureNode.h" />
     <ClInclude Include="..\DBCCEventDispatcher.h" />
     <ClInclude Include="..\DBCCFactory.h" />
+    <ClInclude Include="..\DBCCFactoryExt.h" />
     <ClInclude Include="..\dbccMacro.h" />
     <ClInclude Include="..\DBCCRenderHeaders.h" />
     <ClInclude Include="..\DBCCSlot.h" />
