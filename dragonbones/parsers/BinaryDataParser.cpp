@@ -111,7 +111,6 @@ DragonBonesData* BinaryDataParser::parseDragonBonesData( const void *rawDragonBo
 		ArmatureData *armatureData = parseArmatureData(armatureTable);
 		dragonBonesData->armatureDataList.push_back(armatureData);
 	}
-
 	return dragonBonesData;
 }
 
@@ -316,7 +315,7 @@ AnimationData* BinaryDataParser::parseAnimationData( const fb::Animation *animat
 		animationData->timelineList.push_back(timeline);
 	}
 
-	addHideTimeline(animationData, armatureData);
+	//addHideTimeline(animationData, armatureData);
 	transformAnimationData(animationData, armatureData);
 	return animationData;
 }

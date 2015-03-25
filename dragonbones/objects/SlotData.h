@@ -73,6 +73,11 @@ public:
     
     const DisplayData* getDisplayData(const std::string &displayName) const
     {
+		if (displayName.empty())
+		{
+			return nullptr;
+		}
+		
         for (size_t i = 0, l = displayDataList.size(); i < l; ++i)
         {
             if (displayDataList[i]->name == displayName)

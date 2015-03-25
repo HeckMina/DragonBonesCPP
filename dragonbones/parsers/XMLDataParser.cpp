@@ -301,13 +301,13 @@ AnimationData* XMLDataParser::parseAnimationData(const XMLElement *animationXML,
     
     parseTimeline(*animationXML, *animationData);
     
-    for (const XMLElement *timelineXML = animationXML->FirstChildElement(ConstValues::TIMELINE.c_str()); timelineXML; timelineXML = timelineXML->NextSiblingElement(ConstValues::TIMELINE.c_str()))
-    {
-        TransformTimeline *timeline = parseTransformTimeline(timelineXML, animationData->duration);
-        animationData->timelineList.push_back(timeline);
-    }
+	for (const XMLElement *timelineXML = animationXML->FirstChildElement(ConstValues::TIMELINE.c_str()); timelineXML; timelineXML = timelineXML->NextSiblingElement(ConstValues::TIMELINE.c_str()))
+	{
+		TransformTimeline *timeline = parseTransformTimeline(timelineXML, animationData->duration);
+		animationData->timelineList.push_back(timeline);
+	}
     
-    addHideTimeline(animationData, armatureData);
+    //addHideTimeline(animationData, armatureData);
     transformAnimationData(animationData, armatureData);
     return animationData;
 }
@@ -321,11 +321,11 @@ TransformTimeline* XMLDataParser::parseTransformTimeline(const XMLElement *timel
     timeline->offset = timelineXML->FloatAttribute(ConstValues::A_OFFSET.c_str());
     timeline->duration = duration;
     
-    for (const XMLElement *frameXML = timelineXML->FirstChildElement(ConstValues::FRAME.c_str()); frameXML; frameXML = frameXML->NextSiblingElement(ConstValues::FRAME.c_str()))
-    {
-        TransformFrame *frame = parseTransformFrame(frameXML);
-        timeline->frameList.push_back(frame);
-    }
+	for (const XMLElement *frameXML = timelineXML->FirstChildElement(ConstValues::FRAME.c_str()); frameXML; frameXML = frameXML->NextSiblingElement(ConstValues::FRAME.c_str()))
+	{
+		TransformFrame *frame = parseTransformFrame(frameXML);
+		timeline->frameList.push_back(frame);
+	}
     
     parseTimeline(*timelineXML, *timeline);
     return timeline;
@@ -351,12 +351,12 @@ TransformFrame* XMLDataParser::parseTransformFrame(const XMLElement *frameXML) c
     frame->displayIndex = frameXML->IntAttribute(ConstValues::A_DISPLAY_INDEX.c_str());
     frame->zOrder = getNumber(*frameXML, ConstValues::A_Z_ORDER.c_str(), 0.f, 0.f);
 
-    const XMLElement *transformXML = frameXML->FirstChildElement(ConstValues::TRANSFORM.c_str());
-    if (transformXML)
-    {
-        parseTransform(*transformXML, frame->global);
-        parsePivot(*transformXML, frame->pivot);
-    }
+	const XMLElement *transformXML = frameXML->FirstChildElement(ConstValues::TRANSFORM.c_str());
+	if (transformXML)
+	{
+		parseTransform(*transformXML, frame->global);
+		parsePivot(*transformXML, frame->pivot);
+	}
 
     // copy
     frame->transform = frame->global;

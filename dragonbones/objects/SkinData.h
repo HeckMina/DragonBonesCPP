@@ -48,6 +48,11 @@ public:
     
     SlotData* getSlotData(const std::string &slotName) const
     {
+		if (slotName.empty())
+		{
+			return nullptr;
+		}
+		
         for (size_t i = 0, l = slotDataList.size(); i < l; ++i)
         {
             if (slotDataList[i]->name == slotName)

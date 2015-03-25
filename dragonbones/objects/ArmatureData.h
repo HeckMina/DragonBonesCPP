@@ -227,29 +227,29 @@ public:
             return;
         }
         
-        std::vector<std::pair<int , BoneData*>> sortedList;
-        
-        for (size_t i = 0, l = boneDataList.size(); i < l; ++i)
-        {
-            BoneData *boneData = boneDataList[i];
-            BoneData *parentData = boneData;
-            int level = 0;
-            
-            while (parentData)
-            {
+		std::vector<std::pair<int , BoneData*>> sortedList;
+
+		for (size_t i = 0, l = boneDataList.size(); i < l; ++i)
+		{
+			BoneData *boneData = boneDataList[i];
+			BoneData *parentData = boneData;
+			int level = 0;
+
+			while (parentData)
+			{
 				parentData = getBoneData(parentData->parent);
-                level ++;
-            }
-            
-            sortedList.push_back(std::make_pair(level , boneData));
-        }
-        
-        std::sort(sortedList.begin() , sortedList.end() , sortBone);
-        
-        for (size_t i = 0, l = sortedList.size(); i < l; ++i)
-        {
-            boneDataList[i] = sortedList[i].second;
-        }
+				level ++;
+			}
+
+			sortedList.push_back(std::make_pair(level , boneData));
+		}
+
+		std::sort(sortedList.begin() , sortedList.end() , sortBone);
+
+		for (size_t i = 0, l = sortedList.size(); i < l; ++i)
+		{
+			boneDataList[i] = sortedList[i].second;
+		}
     }
 };
 NAME_SPACE_DRAGON_BONES_END

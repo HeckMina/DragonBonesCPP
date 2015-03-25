@@ -53,6 +53,11 @@ public:
     
     ArmatureData* getArmatureData(const std::string &armatureName) const
     {
+		if (armatureName.empty())
+		{
+			return nullptr;
+		}
+		
         for (size_t i = 0, l = armatureDataList.size(); i < l; ++i)
         {
             if (armatureDataList[i]->name == armatureName)

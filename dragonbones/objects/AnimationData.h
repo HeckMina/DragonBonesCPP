@@ -18,8 +18,7 @@ public:
     
     std::string name;
     std::vector<TransformTimeline*> timelineList;
-    std::vector<std::string> hideTimelineList;
-    
+    //std::vector<std::string> hideTimelineList;
 public:
     AnimationData()
     {
@@ -52,7 +51,7 @@ public:
         }
         
         // copy
-        hideTimelineList = copyData.hideTimelineList;
+        //hideTimelineList = copyData.hideTimelineList;
         return *this;
     }
     virtual ~AnimationData()
@@ -67,15 +66,20 @@ public:
     
     TransformTimeline *getTimeline(const std::string &timelineName) const
     {
-        for (size_t i = 0, l = timelineList.size(); i < l; ++i)
-        {
-            if (timelineList[i]->name == timelineName)
-            {
-                return timelineList[i];
-            }
-        }
-        
-        return nullptr;
+		if (timelineName.empty())
+		{
+			return nullptr;
+		}
+		
+		for (size_t i = 0, l = timelineList.size(); i < l; ++i)
+		{
+			if (timelineList[i]->name == timelineName)
+			{
+				return timelineList[i];
+			}
+		}
+
+		return nullptr;
     }
     
 private:
@@ -88,7 +92,7 @@ private:
         }
         
         timelineList.clear();
-        hideTimelineList.clear();
+        //hideTimelineList.clear();
     }
 };
 NAME_SPACE_DRAGON_BONES_END

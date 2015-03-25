@@ -721,7 +721,6 @@ void AnimationState::updateMainTimeline(bool isThisComplete)
             }
             
             currentFrame = _clip->frameList[_currentFrameIndex];
-            
             if (prevFrame)
             {
                 _armature->arriveAtFrame(prevFrame, this, true);
@@ -741,15 +740,23 @@ void AnimationState::updateMainTimeline(bool isThisComplete)
 
 void AnimationState::hideBones()
 {
-    for (size_t i = 0, l = _clip->hideTimelineList.size(); i < l; ++i)
-    {
-        Bone *bone = _armature->getBone(_clip->hideTimelineList[i]);
-        
-        if (bone)
-        {
-            bone->hideSlots();
-        }
-    }
+	//for (size_t i = 0, l = _clip->hideTimelineList.size(); i < l; ++i)
+	//{
+	//	Bone *bone = _armature->getBone(_clip->hideTimelineList[i]);
+
+	//	if (bone)
+	//	{
+	//		bone->hideSlots();
+	//	}
+	//}
+	
+	auto bones = _armature->getBones();
+	for (size_t i = 0; i < bones.size(); ++i)
+	{
+		auto timeline = _clip->getTimeline(bones[i]->name);
+		if (!timeline)
+			bones[i]->hideSlots();
+	}
 }
 
 void AnimationState::clear()

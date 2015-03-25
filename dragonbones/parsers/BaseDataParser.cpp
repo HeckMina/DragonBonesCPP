@@ -153,25 +153,25 @@ void BaseDataParser::transformAnimationData(AnimationData *animationData, const 
     }
 }
 
-void BaseDataParser::addHideTimeline(AnimationData *animationData, const ArmatureData *armatureData)
-{
-    for (size_t i = 0, l = armatureData->boneDataList.size(); i < l; ++i)
-    {
-        const BoneData *boneData = armatureData->boneDataList[i];
-        
-        if (!animationData->getTimeline(boneData->name))
-        {
-            auto iterator = std::find(animationData->hideTimelineList.cbegin(), animationData->hideTimelineList.cend(), boneData->name);
-            
-            if (iterator != animationData->hideTimelineList.cend())
-            {
-                continue;
-            }
-            
-            animationData->hideTimelineList.push_back(boneData->name);
-        }
-    }
-}
+//void BaseDataParser::addHideTimeline(AnimationData *animationData, const ArmatureData *armatureData)
+//{
+//    for (size_t i = 0, l = armatureData->boneDataList.size(); i < l; ++i)
+//    {
+//        const BoneData *boneData = armatureData->boneDataList[i];
+//        
+//        if (!animationData->getTimeline(boneData->name))
+//        {
+//            auto iterator = std::find(animationData->hideTimelineList.cbegin(), animationData->hideTimelineList.cend(), boneData->name);
+//            
+//            if (iterator != animationData->hideTimelineList.cend())
+//            {
+//                continue;
+//            }
+//            
+//            animationData->hideTimelineList.push_back(boneData->name);
+//        }
+//    }
+//}
 
 void BaseDataParser::setFrameTransform(AnimationData *animationData, const ArmatureData *armatureData, const BoneData *boneData, TransformFrame *frame)
 {
